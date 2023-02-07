@@ -17,7 +17,7 @@ class PokemonCollectionView(generics.ListCreateAPIView):
     def get_queryset(self):
         qs = super().get_queryset()
         if self.request.query_params:
-            # Fiter query set by non integer data types
+            # Filter query set by non integer data types
             filter_qs = {
                 k: v.lower()
                 for k, v in self.request.query_params.items()
