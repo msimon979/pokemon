@@ -1,0 +1,11 @@
+Django==4.1.4
+djangorestframework==3.14.0
+pytest==7.2.0
+pytest-django==4.5.2
+black==22.12.0
+numpy
+requests
+psycopg2-binary==2.9.5
+autoflake==2.0.0
+isort
+django-extensions==3.2.1

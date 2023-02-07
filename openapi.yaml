@@ -1,0 +1,201 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Sample API
+  description: A sample API to illustrate OpenAPI concepts
+paths:
+  /pokemon/:
+    get:
+      description: Returns a list of Pokemon
+      parameters:
+        - name: type_1
+          in: query
+          description: Filter by type_1
+          schema:
+            type: string
+        - name: type_2
+          in: query
+          description: Filter by type_2
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully returned a list of artists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: string
+                  next:
+                    type: string
+                  previous:
+                    type: integer
+                  results:
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        type_1:
+                          type: integer
+                        type_2:
+                          type: string
+                        total_stats:
+                          type: integer
+                        hp:
+                          type: integer
+                        attack:
+                          type: integer
+                        defense:
+                          type: integer
+                        special_atk:
+                          type: integer
+                        special_def:
+                          type: integer
+                        speed:
+                          type: integer
+                        generation:
+                          type: integer
+                        legendary:
+                          type: boolean
+                  
+    post:
+      description: Create new Pokemon
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                type_1:
+                  type: integer
+                type_2:
+                  type: string
+                total_stats:
+                  type: integer
+                hp:
+                  type: integer
+                attack:
+                  type: integer
+                defense:
+                  type: integer
+                special_atk:
+                  type: integer
+                special_def:
+                  type: integer
+                speed:
+                  type: integer
+                generation:
+                  type: integer
+                legendary:
+                  type: boolean
+
+      responses:
+        '200':
+          description: Successfully created a new Pokemon
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  type_1:
+                    type: integer
+                  type_2:
+                    type: string
+                  total_stats:
+                    type: integer
+                  hp:
+                    type: integer
+                  attack:
+                    type: integer
+                  defense:
+                    type: integer
+                  special_atk:
+                    type: integer
+                  special_def:
+                    type: integer
+                  speed:
+                    type: integer
+                  generation:
+                    type: integer
+                  legendary:
+                    type: boolean
+
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  message:
+                    type: string
+                    
+                    
+  /pokemon/{id}:
+    get:
+      description: Obtain information about an artist from his or her unique username
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          
+      responses:
+        '200':
+          description: Successfully returned an Pokemon
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  type_1:
+                    type: integer
+                  type_2:
+                    type: string
+                  total_stats:
+                    type: integer
+                  hp:
+                    type: integer
+                  attack:
+                    type: integer
+                  defense:
+                    type: integer
+                  special_atk:
+                    type: integer
+                  special_def:
+                    type: integer
+                  speed:
+                    type: integer
+                  generation:
+                    type: integer
+                  legendary:
+                    type: boolean
+                
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object 
+                properties:           
+                  message:
+                    type: string
