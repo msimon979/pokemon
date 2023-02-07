@@ -33,7 +33,7 @@ class PokemonCollectionTests(APITestCase):
 
     def test_get_collections_with_filters(self):
         """
-        Test second page paginated results are returned with a 200
+        Test filtering by type_1 and type_2 return the correct types
         """
         url = reverse("pokemon_names") + "?type_1=grass&type_2=poison"
 

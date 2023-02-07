@@ -5,21 +5,23 @@ from rest_framework.views import APIView
 from pokemon.models import Pokemon
 from pokemon.serializer import PokemonSerializer
 
-# Only allow filtering on columns
-VALID_PARAMS = [field.name for field in Pokemon._meta.get_fields()]
+# Only allow filtering on specific columns
+VALID_PARAMS = ["name", "type_1", "type_2"]
 
 
 class PokemonCollectionView(generics.ListCreateAPIView):
     http_method_names = ["get", "post", "patch", "head", "options"]
     serializer_class = PokemonSerializer
     queryset = Pokemon.objects.all()
-    paginate_by_param = "type_1"
 
     def get_queryset(self):
         qs = super().get_queryset()
         if self.request.query_params:
+            # Fiter query set by non integer data types
             filter_qs = {
-                k: v for k, v in self.request.query_params.items() if k in VALID_PARAMS
+                k: v.lower()
+                for k, v in self.request.query_params.items()
+                if k in VALID_PARAMS
             }
             qs = qs.filter(**filter_qs)
         return qs
