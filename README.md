@@ -15,4 +15,4 @@ Refer to openapi.yaml for more information:
 
 `http://0.0.0.0:8000/pokemon/?type_1=<str>&type_2=<str>&name=<str>` -> GET, optional filters to search pokemon
 
-`http://0.0.0.0:8000/pokemon/<id>/` -> POST
+`http://0.0.0.0:8000/pokemon/<id>/` -> GET
