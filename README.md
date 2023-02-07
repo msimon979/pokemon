@@ -6,7 +6,7 @@ Application requires docker desktop (https://www.docker.com/products/docker-desk
 2. `make migrate`
 
 ## Tests
-Run test suite with `make tests`. The database is seeded by a migration file that pulls from `https://msimon979.github.io/pokemon.json`
+While the container is up run test suite with `make tests`. The database is seeded by a migration file that pulls from `https://msimon979.github.io/pokemon.json`
 
 ## Routes
 Refer to openapi.yaml for more information:
